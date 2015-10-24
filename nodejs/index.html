@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Socket.IO Chat</title>
+		
+		<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				var socket = io();
+				
+				socket.on('mensagem_cliente', function(dados) {
+					var li = document.createElement('li');
+					li.appendChild(document.createTextNode(dados));
+					
+					document.getElementById('mensagens').appendChild(li);
+				});
+				
+				document.getElementById('btn_enviar').onclick = function () {
+					var inputMensagem = document.getElementById('mensagem');
+					
+					socket.emit('mensagem_servidor', inputMensagem.value);
+					
+					inputMensagem.value = '';
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<h1>Socket.IO Chat</h1>
+	
+		<input type="text" id="mensagem"/>
+		
+		<br>
+		
+		<input type="button" id="btn_enviar" value="Enviar"/>
+		
+		<br>
+		<br>
+		
+		<ul id="mensagens">
+		</ul>
+	</body>
+</html>

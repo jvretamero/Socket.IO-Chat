@@ -1,0 +1,15 @@
+{
+  "name": "socketiochat",
+  "version": "1.0.0",
+  "description": "Chat usando Socket.IO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "João Vitor Retamero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  }
+}
